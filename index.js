@@ -2,6 +2,7 @@
 const searchButton = document.getElementById('search-button');
 const header = document.getElementById('header');
 const main = document.getElementById('weatherForecast');
+const backToPageBtn = document.getElementById('back-to-page-btn');
 
 const weatherCodeMap = {
     0: "Clear sky",

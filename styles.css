@@ -8,7 +8,9 @@ body{
 
 .search-label{
     font-size: 1.2em;
+    color: #fff;
 }
+
 .search-input{
     margin: 10px;
 }
@@ -43,7 +45,7 @@ header{
 
 main{
     display: none;
-    margin: 4rem 5rem;
+    margin: 3rem 5rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     justify-content: center;
@@ -193,16 +195,16 @@ h5{
     margin: 0 35rem;
     padding: 10px;
     border-radius: 10px;
-    border: yellow solid 1px;
-    color: yellow;
+    border: #fff solid 1px;
+    color: #fff;
     background: rgba(255, 255, 255, 0.1);
 }
 
 
 .back-to-page-btn:hover{
     cursor: pointer;
-    border: #fff solid 1px;
-    color: #fff;
+    border: yellow solid 1px;
+    color: yellow;
 }
 
 footer{
