@@ -93,7 +93,7 @@ function getDailyweather(data) {
                 <div class="daily-forecast">
                     <p><b>${date}</b></p>
                     <p><small>${weatherDescription(data.weather_code[i])}</small></p>
-                    <p><b>${data.temperature_2m_max[i]}</b>°/${data.temperature_2m_min[i]}°</p>
+                    <p><b>H:${data.temperature_2m_max[i]}</b>°&nbsp;/&nbsp;L:${data.temperature_2m_min[i]}°</p>
                 </div>
                 <button id="daily-forecast-detail-${i}" class="daily-forecast-detail">
                     <i class="bi bi-caret-down-fill"></i>
