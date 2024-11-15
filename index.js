@@ -135,22 +135,25 @@ function getCurrentWeatherForecast(data, name) {
 
     const weatherCurrent = document.getElementById('weather-current');
 
-    const date = new Date();
-    const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    const currentDate = date.toLocaleDateString('en-US', option);
-    const currentTime = date.toLocaleString('en-US', {
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: false
-    });
+    setInterval(() => {
+        const date = new Date();
+        const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
+        const currentDate = date.toLocaleDateString('en-US', option);
+        const currentTime = date.toLocaleString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: false
+        });
 
+        weatherCurrent.innerHTML = `
+        <h1>${currentDate}&nbsp;${currentTime}</h1>
+        <h2>📍${name}</h2>
+        <h3>${data.current.temperature_2m}℉</h3>
+        <h4>${weatherDescription(data.current.weather_code)}</h4>
+        `;
+    }, 1000);
 
-    weatherCurrent.innerHTML = `
-                            <h1>${currentDate}&nbsp;${currentTime}</h1>
-                            <h2>📍${name}</h2>
-                            <h3>${data.current.temperature_2m}℉</h3>
-                            <h4>${weatherDescription(data.current.weather_code)}</h4>
-    `;
 }
 
 function getLatLon(postalCode, data) {
