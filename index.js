@@ -75,7 +75,6 @@ function getHourlyweather(data) {
 
 
 function getDailyweather(data) {
-    // console.log(data);
     const weatherDaily = document.getElementById('weather-daily-forecast');
     weatherDaily.innerHTML = '';
 
@@ -180,7 +179,6 @@ function getLatLon(postalCode, data) {
         }
 
         const { latitude, longitude, name } = data.results[0];
-        // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
         return { latitude, longitude, name };
 
     } catch (err) {
