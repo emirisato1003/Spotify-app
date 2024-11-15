@@ -67,7 +67,7 @@ main{
     font-size: 1.8em;
 }
 
-.weather-hourly-forecast{
+/* .weather-hourly-forecast{
     grid-column: 1 / -1;
 
     overflow-x:auto;
@@ -77,9 +77,9 @@ main{
     border: #fff solid 1px;
     border-radius: 10px;
     background-color: #f5f5f555;
-}
+} */
 
-.hourly-forecast-container{
+/* .hourly-forecast-container{
     display: flex;
     justify-content: space-between;
 
@@ -89,9 +89,9 @@ main{
 
     gap: 10px;
     padding: 0 10px 10px;
-}
+} */
 
-.hourly-forecast{
+/* .hourly-forecast{
     min-width: 120px; 
     display: flex;
     flex-direction: column;
@@ -100,31 +100,31 @@ main{
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     flex-shrink: 0; 
-}
+} */
 
-.hourly-forecast{
+/* .hourly-forecast{
     margin: 0;
     text-align: center;
     white-space: nowrap;
-}
+} */
 
-.hourly-forecast-container::-webkit-scrollbar {
+/* .hourly-forecast-container::-webkit-scrollbar {
     height: 8px; 
-}
+} */
 
-.hourly-forecast-container::-webkit-scrollbar-track {
+/* .hourly-forecast-container::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
-}
+} */
 
-.hourly-forecast-container::-webkit-scrollbar-thumb {
+/* .hourly-forecast-container::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 4px;
-}
+} */
 
-.hourly-forecast-container::-webkit-scrollbar-thumb:hover {
+/* .hourly-forecast-container::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.4);
-}
+} */
 
 .weather-daily-forecast{
     border: #fff solid 1px;
