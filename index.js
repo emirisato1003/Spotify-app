@@ -135,7 +135,7 @@ function getCurrentWeatherForecast(data, name) {
 
     const weatherCurrent = document.getElementById('weather-current');
 
-    setInterval(() => {
+    // setInterval(() => {
         const date = new Date();
         const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
         const currentDate = date.toLocaleDateString('en-US', option);
@@ -147,12 +147,13 @@ function getCurrentWeatherForecast(data, name) {
         });
 
         weatherCurrent.innerHTML = `
-        <h1>${currentDate}&nbsp;${currentTime}</h1>
-        <h2>📍${name}</h2>
-        <h3>${data.current.temperature_2m}℉</h3>
-        <h4>${weatherDescription(data.current.weather_code)}</h4>
+        <h1>${currentDate}</h1>
+        <h2>${currentTime}</h2>
+        <h3><i class="bi bi-geo-alt-fill"></i>&nbsp;${name}</h3>
+        <h4>${data.current.temperature_2m}℉</h4>
+        <h5 class="weather-code">${weatherDescription(data.current.weather_code)}</h5>
         `;
-    }, 1000);
+    // }, 1000);
 
 }
 
