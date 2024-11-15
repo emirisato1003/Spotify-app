@@ -39,39 +39,39 @@ function weatherDescription(code) {
     return (weatherCodeMap[code] || "Unknown weather");
 }
 
-// function getHourlyweather(data) {
-//     const weatherHourly = document.getElementById('weather-hourly-forecast');
-//     const currentHour = new Date().getHours();
-//     weatherHourly.innerHTML = '';
+function getHourlyweather(data) {
+    const weatherHourly = document.getElementById('weather-hourly-forecast');
+    const currentHour = new Date().getHours();
+    weatherHourly.innerHTML = '';
 
-//     const title = document.createElement('h5');
-//     title.innerHTML = '<i class="bi bi-clock"></i> Hourly Forecast';
-//     weatherHourly.appendChild(title);
+    const title = document.createElement('h5');
+    title.innerHTML = '<i class="bi bi-clock"></i> Hourly Forecast';
+    weatherHourly.appendChild(title);
 
-//     const hourlyContainer = document.createElement('div');
-//     hourlyContainer.classList.add('hourly-forecast-container');
+    const hourlyContainer = document.createElement('div');
+    hourlyContainer.classList.add('hourly-forecast-container');
 
-//     for (let i = [currentHour]; i < currentHour + 24; i++) {
-//         const dataIndex = i;
-//         const displayHour = new Date(data.time[dataIndex]).toLocaleDateString('en-US', {
-//             hour: '2-digit',
-//             minute: '2-digit',
-//             hour12: false
-//         }).slice(11, 17);
+    for (let i = [currentHour]; i < currentHour + 24; i++) {
+        const dataIndex = i;
+        const displayHour = new Date(data.time[dataIndex]).toLocaleDateString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        }).slice(11, 17);
 
 
-//         hourlyContainer.innerHTML += `
-//                             <div class="hourly-forecast">
-//                                     <p><b>${displayHour}</b></p>
-//                                     <small>${weatherDescription(data.weather_code[dataIndex])}</small>
-//                                     <p><b>${data.temperature_2m[dataIndex]}</b>°</p>
-//                             </div>
-//         `;
+        hourlyContainer.innerHTML += `
+                            <div class="hourly-forecast">
+                                    <p><b>${displayHour}</b></p>
+                                    <small>${weatherDescription(data.weather_code[dataIndex])}</small>
+                                    <p><b>${data.temperature_2m[dataIndex]}</b>°</p>
+                            </div>
+        `;
 
-//     }
-//     weatherHourly.appendChild(hourlyContainer);
+    }
+    weatherHourly.appendChild(hourlyContainer);
 
-// }
+}        
 
 
 function getDailyweather(data) {
@@ -212,7 +212,7 @@ searchButton.addEventListener('click', (e) => {
                 .then(data => {
                     console.log(url);
                     getCurrentWeatherForecast(data, geo.name);
-                    // getHourlyweather(data.hourly);
+                    getHourlyweather(data.hourly);
                     getDailyweather(data.daily);
                 });
         });
