@@ -156,7 +156,8 @@ main{
 h5{
     text-align: start;
     margin-left: 25px;
-    color: #000;
+    color: yellow;
+    font-weight: 100;
 }
 
 .daily-forecast-container{
@@ -179,15 +180,34 @@ h5{
     padding: 0;
     border-radius: 0 0 10px 10px;
     background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .daily-forecast-container > button:hover{
     cursor: pointer;
+    color: #000;
+}
+
+.back-to-page-btn{
+    grid-column: 1 / -1;
+    margin: 0 35rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: #fff solid 1px;
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
+}
+
+
+.back-to-page-btn:hover{
+    cursor: pointer;
+    border: yellow solid 1px;
+    color: yellow;
 }
 
 footer{
     font-size: .8em;
+    color: yellow;
 }
 
 
