@@ -135,6 +135,11 @@ function getCurrentWeatherForecast(data, name) {
     main.style.display = 'grid';
 
     const weatherCurrent = document.getElementById('weather-current');
+    weatherCurrent.innerHTML = '';
+
+    const currentContainer = document.createElement('div');
+    currentContainer.classList.add('weather-current-container');
+
 
     setInterval(() => {
         const date = new Date();
@@ -147,7 +152,7 @@ function getCurrentWeatherForecast(data, name) {
             hour12: false
         });
 
-        weatherCurrent.innerHTML = `
+        currentContainer.innerHTML = `
         <h1>${currentDate}</h1>
         <h2>${currentTime}</h2>
         <h3><i class="bi bi-geo-alt-fill"></i>&nbsp;${name}</h3>
@@ -155,6 +160,8 @@ function getCurrentWeatherForecast(data, name) {
         <h5 class="weather-code">${weatherDescription(data.current.weather_code)}</h5>
         `;
     }, 1000);
+    weatherCurrent.appendChild(currentContainer);
+
 
 }
 
@@ -183,6 +190,11 @@ function getLatLon(postalCode, data) {
     }
 
 }
+
+backToPageBtn.addEventListener('click', () => {
+    header.style.display = 'block';
+    main.style.display = 'none';
+});
 
 searchButton.addEventListener('click', (e) => {
     e.preventDefault();
