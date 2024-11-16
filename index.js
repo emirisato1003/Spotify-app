@@ -143,7 +143,7 @@ function getCurrentWeatherForecast(data, name) {
     currentContainer.classList.add('weather-current-container');
 
 
-    setInterval(() => {
+    // setInterval(() => {
         const date = new Date();
         const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
         const currentDate = date.toLocaleDateString('en-US', option);
@@ -161,7 +161,7 @@ function getCurrentWeatherForecast(data, name) {
         <h4>${data.current.temperature_2m}℉</h4>
         <h5 class="weather-code">${weatherDescription(data.current.weather_code)}</h5>
         `;
-    }, 1000);
+    // }, 1000);
     weatherCurrent.appendChild(currentContainer);
 
 
