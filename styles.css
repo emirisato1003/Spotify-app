@@ -212,8 +212,26 @@ footer{
     color: yellow;
 }
 
-
 @media screen and (max-width: 480px){
+    header{
+        font-size: 70%;
+    }
+    .weather-current{
+        font-size: 50%;
+    }
+    .daily-forecast-container{
+        margin: 10px;
+    }
+    .daily-forecast{
+        flex-wrap: wrap;
+    }
+    .daily-forecast > p{
+        padding-right: 28px;
+    }
+}
+
+
+@media screen and (max-width: 610px){
     .weather-current{
         font-size: 70%;
     }
@@ -227,29 +245,41 @@ footer{
         margin: 0 2rem;
     }
     .daily-forecast-container{
-        margin: 15px;
+        /* margin: 15px; */
     }
 }
 
 @media screen and (max-width: 960px){
-    .daily-forecast-container{
-        margin: 18px;
-    }
+    /* .daily-forecast-container{
+        margin: 15px 5rem;
+    } */
 }
 
 @media screen and (max-width: 1200px){
-    .main{
+    main{
         grid-template-columns: 1fr;
+        margin: 0 5rem;
     }
+
+    main > div:nth-child(3){
+        order: 3;
+    }
+
     .weather-current{
         font-size: 70%;
-        /* margin: 0 5rem; */
     }
     .weather-current-container{
-        /* margin: 1rem 0; */
+        margin: 1rem 0;
     }
     .weather-current-container > h2{
-        /* margin: 0 0 0 0; */
+        margin: 0 0 0 0;
     }
+    .weather-code{
+        margin: 10px 0 0 0;
+    }
+
+    /* .daily-forecast-container{
+        margin: 20px 10rem;
+    } */
 }
 
