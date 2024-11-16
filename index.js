@@ -4,6 +4,13 @@ const header = document.getElementById('header');
 const main = document.getElementById('weatherForecast');
 const backToPageBtn = document.getElementById('back-to-page-btn');
 
+function h5(title, icon){
+    const h5 = document.createElement('h5');
+    h5.innerHTML = `<i class="bi ${icon}"></i>&nbsp;${title}`;
+    h5.className = 'forecast-title';
+    return h5;
+}
+
 const weatherCodeMap = {
     0: "Clear sky",
     1: "Mainly clear",
@@ -44,9 +51,7 @@ function getHourlyweather(data) {
     const currentHour = new Date().getHours();
     weatherHourly.innerHTML = '';
 
-    const title = document.createElement('h5');
-    title.innerHTML = '<i class="bi bi-clock"></i> Hourly Forecast';
-    weatherHourly.appendChild(title);
+    weatherHourly.appendChild(h5('Hourly Forecast', 'bi-clock'));
 
     const hourlyContainer = document.createElement('div');
     hourlyContainer.classList.add('hourly-forecast-container');
@@ -78,9 +83,7 @@ function getDailyweather(data) {
     const weatherDaily = document.getElementById('weather-daily-forecast');
     weatherDaily.innerHTML = '';
 
-    const h5 = document.createElement('h5');
-    h5.innerHTML = '<i class="bi bi-calendar3"></i> Daily Forecast';
-    weatherDaily.appendChild(h5);
+    weatherDaily.appendChild(h5('Daily Forecast', 'bi-calendar3'));
 
 
     for (i = 0; i < data.time.length; i++) {
@@ -95,7 +98,7 @@ function getDailyweather(data) {
                     <p><small>${weatherDescription(data.weather_code[i])}</small></p>
                     <p><b>H:${data.temperature_2m_max[i]}</b>°&nbsp;/&nbsp;L:${data.temperature_2m_min[i]}°</p>
                 </div>
-                <button id="daily-forecast-detail-${i}" class="daily-forecast-detail">
+                <button id="daily-forecast-detail-${i}" class="daily-forecast-detail-${i}">
                     <i class="bi bi-caret-down-fill"></i>
                 </button>
                 <div id="detail-content-${i}" class="detail-content" style="display: none;">

@@ -67,13 +67,13 @@ main{
 }
 
 .weather-current-container > h2{
-    margin: 0 0 35px 0;
+    margin: 0 0 45px 0;
     font-size: 1.5em;
     color: #383636;
 }
 
 .weather-current-container > h3{
-    margin: 10px 0;
+    /* margin: 10px 0; */
     font-size: 1.5em;
 }
 
@@ -84,7 +84,6 @@ main{
 
 .weather-code{
     font-size: 1.5em;
-    margin: 25px 0;
     text-align: center;
     color: #383636;
 }
@@ -155,7 +154,7 @@ main{
     padding-bottom: 10px;
 }
 
-h5{
+.forecast-title{
     text-align: start;
     margin-left: 25px;
     color: yellow;
@@ -192,7 +191,8 @@ h5{
 
 .back-to-page-btn{
     grid-column: 1 / -1;
-    margin: 0 35rem;
+    max-width:250px;
+    margin: 0 auto;
     padding: 10px;
     border-radius: 10px;
     border: #fff solid 1px;
@@ -232,9 +232,6 @@ footer{
 }
 
 @media screen and (max-width: 960px){
-    .weather-current{
-        font-size: 80%;
-    }
     .daily-forecast-container{
         margin: 18px;
     }
@@ -243,6 +240,17 @@ footer{
 @media screen and (max-width: 1200px){
     .main{
         grid-template-columns: 1fr;
+    }
+
+    .weather-current{
+        font-size: 70%;
+        margin: 0 5rem;
+    }
+    .weather-current-container{
+        margin: 1rem 0;
+    }
+    .weather-current-container > h2{
+        margin: 0 0 0 0;
     }
 }
 
