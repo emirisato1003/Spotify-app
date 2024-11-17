@@ -14,115 +14,115 @@ function h5(title, icon) {
 const weatherCodeMap = {
     0: {
         description: "Clear sky",
-        icon: "<i class='bi bi-brightness-high-fill'></i>"
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather01-512.png"
     },
     1: {
         description: "Mainly clear",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png"
     },
     2: {
         description: "Partly cloudy",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather03-512.png"
     },
     3: {
         description: "Overcast",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather04-512.png"
     },
     45: {
         description: "Fog",
-        icon: ""
+        icon: "https://cdn3.iconfinder.com/data/icons/winter-flat-8/32/winter_season_weather_Cloud_fog_sky_wind-512.png"
     },
     48: {
         description: "Depositing rime fog",
-        icon: ""
+        icon: "https://cdn3.iconfinder.com/data/icons/winter-flat-8/32/winter_season_weather_Cloud_fog_sky_wind-512.png"
     },
     51: {
         description: "Light drizzle",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather05-512.png"
     },
     53: {
         description: "Moderate drizzle",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather06-512.png"
     },
     55: {
         description: "Dense drizzle",
-        icon: "https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-32-512.png"
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png"
     },
     56: {
         description: "Light freezing drizzle",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather05-512.png"
     },
     57: {
         description: "Dense freezing drizzle",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png"
     },
     61: {
         description: "Slight rain",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather05-512.png"
     },
     63: {
         description: "Moderate rain",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather06-512.png"
     },
     65: {
         description: "Heavy rain",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png"
     },
     66: {
         description: "Light freezing rain",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather05-512.png"
     },
     67: {
         description: "Heavy freezing rain",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png"
     },
     71: {
         description: "Slight snow fall",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather05-512.png"
     },
     73: {
         description: "Moderate snow fall",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather12-512.png"
     },
     75: {
         description: "Heavy snow fall",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather13-512.png"
     },
     77: {
         description: "Snow grains",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather12-512.png"
     },
     80: {
         description: "Slight rain showers",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather05-512.png"
     },
     81: {
         description: "Moderate rain showers",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather06-512.png"
     },
     82: {
         description: "Violent rain showers",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png"
     },
     85: {
         description: "Slight snow showers",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather12-512.png"
     },
     86: {
         description: "Heavy snow showers",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather13-512.png"
     },
     95: {
         description: "Slight or moderate thunderstorm",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather09-512.png"
     },
     96: {
         description: "Thunderstorm with slight hail",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather14-512.png"
     },
     99: {
         description: "Thunderstorm with heavy hail",
-        icon: ""
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather08-512.png"
     }
 };
 
@@ -130,7 +130,7 @@ console.log(weatherCodeMap[0].description);
 
 function weatherDescription(code) {
     return (`
-            <img src=${weatherCodeMap[code].icon} alt=${weatherCodeMap[code].description} width="100" height="100"><br>
+            <img src=${weatherCodeMap[code].icon} alt=${weatherCodeMap[code].description} width="80" height="80"><br>
             <small>${weatherCodeMap[code].description}</small>
         ` 
         || "Unknown weather");
