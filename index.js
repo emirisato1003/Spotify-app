@@ -12,38 +12,128 @@ function h5(title, icon) {
 }
 
 const weatherCodeMap = {
-    0: "Clear sky",
-    1: "Mainly clear",
-    2: "Partly cloudy",
-    3: "Overcast",
-    45: "Fog",
-    48: "Depositing rime fog",
-    51: "Light drizzle",
-    53: "Moderate drizzle",
-    55: "Dense drizzle",
-    56: "Light freezing drizzle",
-    57: "Dense freezing drizzle",
-    61: "Slight rain",
-    63: "Moderate rain",
-    65: "Heavy rain",
-    66: "Light freezing rain",
-    67: "Heavy freezing rain",
-    71: "Slight snow fall",
-    73: "Moderate snow fall",
-    75: "Heavy snow fall",
-    77: "Snow grains",
-    80: "Slight rain showers",
-    81: "Moderate rain showers",
-    82: "Violent rain showers",
-    85: "Slight snow showers",
-    86: "Heavy snow showers",
-    95: "Slight or moderate thunderstorm",
-    96: "Thunderstorm with slight hail",
-    99: "Thunderstorm with heavy hail"
+    0: {
+        description: "Clear sky",
+        icon: "<i class='bi bi-brightness-high-fill'></i>"
+    },
+    1: {
+        description: "Mainly clear",
+        icon: ""
+    },
+    2: {
+        description: "Partly cloudy",
+        icon: ""
+    },
+    3: {
+        description: "Overcast",
+        icon: ""
+    },
+    45: {
+        description: "Fog",
+        icon: ""
+    },
+    48: {
+        description: "Depositing rime fog",
+        icon: ""
+    },
+    51: {
+        description: "Light drizzle",
+        icon: ""
+    },
+    53: {
+        description: "Moderate drizzle",
+        icon: ""
+    },
+    55: {
+        description: "Dense drizzle",
+        icon: "https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-32-512.png"
+    },
+    56: {
+        description: "Light freezing drizzle",
+        icon: ""
+    },
+    57: {
+        description: "Dense freezing drizzle",
+        icon: ""
+    },
+    61: {
+        description: "Slight rain",
+        icon: ""
+    },
+    63: {
+        description: "Moderate rain",
+        icon: ""
+    },
+    65: {
+        description: "Heavy rain",
+        icon: ""
+    },
+    66: {
+        description: "Light freezing rain",
+        icon: ""
+    },
+    67: {
+        description: "Heavy freezing rain",
+        icon: ""
+    },
+    71: {
+        description: "Slight snow fall",
+        icon: ""
+    },
+    73: {
+        description: "Moderate snow fall",
+        icon: ""
+    },
+    75: {
+        description: "Heavy snow fall",
+        icon: ""
+    },
+    77: {
+        description: "Snow grains",
+        icon: ""
+    },
+    80: {
+        description: "Slight rain showers",
+        icon: ""
+    },
+    81: {
+        description: "Moderate rain showers",
+        icon: ""
+    },
+    82: {
+        description: "Violent rain showers",
+        icon: ""
+    },
+    85: {
+        description: "Slight snow showers",
+        icon: ""
+    },
+    86: {
+        description: "Heavy snow showers",
+        icon: ""
+    },
+    95: {
+        description: "Slight or moderate thunderstorm",
+        icon: ""
+    },
+    96: {
+        description: "Thunderstorm with slight hail",
+        icon: ""
+    },
+    99: {
+        description: "Thunderstorm with heavy hail",
+        icon: ""
+    }
 };
 
+console.log(weatherCodeMap[0].description);
+
 function weatherDescription(code) {
-    return (weatherCodeMap[code] || "Unknown weather");
+    return (`
+            <img src=${weatherCodeMap[code].icon} alt=${weatherCodeMap[code].description} width="100" height="100"><br>
+            <small>${weatherCodeMap[code].description}</small>
+        ` 
+        || "Unknown weather");
 }
 
 function getHourlyweather(data) {
@@ -68,7 +158,7 @@ function getHourlyweather(data) {
         hourlyContainer.innerHTML += `
                             <div class="hourly-forecast">
                                     <p><b>${displayHour}</b></p>
-                                    <small>${weatherDescription(data.weather_code[dataIndex])}</small>
+                                    ${weatherDescription(data.weather_code[dataIndex])}
                                     <p><b>${data.temperature_2m[dataIndex]}</b>°</p>
                             </div>
         `;
