@@ -4,7 +4,7 @@ const header = document.getElementById('header');
 const main = document.getElementById('weatherForecast');
 const backToPageBtn = document.getElementById('back-to-page-btn');
 
-function h5(title, icon){
+function h5(title, icon) {
     const h5 = document.createElement('h5');
     h5.innerHTML = `<i class="bi ${icon}"></i>&nbsp;${title}`;
     h5.className = 'forecast-title';
@@ -76,7 +76,7 @@ function getHourlyweather(data) {
     }
     weatherHourly.appendChild(hourlyContainer);
 
-}        
+}
 
 
 function getDailyweather(data) {
@@ -87,14 +87,22 @@ function getDailyweather(data) {
 
 
     for (i = 0; i < data.time.length; i++) {
-        const date = new Date(data.time[i]).toLocaleDateString('en-US', { weekday: 'short' });
+        const dailyDate = data.time[i].slice(5, 10).replace('-', '/');
 
+        const now = new Date().toLocaleDateString('en-US',
+            {
+                month: "2-digit",
+                day: "2-digit",
+
+            });
+
+        // console.log();
         const dailyContainer = document.createElement('div');
         dailyContainer.classList.add('daily-forecast-container');
 
         dailyContainer.innerHTML += `
                 <div class="daily-forecast">
-                    <p><b>${date}</b></p>
+                    <p><b>${now === dailyDate ? 'Today' : dailyDate}</b></p>
                     <p><small>${weatherDescription(data.weather_code[i])}</small></p>
                     <p><b>H:${data.temperature_2m_max[i]}</b>°&nbsp;/&nbsp;L:${data.temperature_2m_min[i]}°</p>
                 </div>
@@ -144,17 +152,17 @@ function getCurrentWeatherForecast(data, name) {
 
 
     // setInterval(() => {
-        const date = new Date();
-        const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
-        const currentDate = date.toLocaleDateString('en-US', option);
-        const currentTime = date.toLocaleString('en-US', {
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric',
-            hour12: false
-        });
+    const date = new Date();
+    const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const currentDate = date.toLocaleDateString('en-US', option);
+    const currentTime = date.toLocaleString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: false
+    });
 
-        currentContainer.innerHTML = `
+    currentContainer.innerHTML = `
         <h1>${currentDate}</h1>
         <h2>${currentTime}</h2>
         <h3><i class="bi bi-geo-alt-fill"></i>&nbsp;${name}</h3>
