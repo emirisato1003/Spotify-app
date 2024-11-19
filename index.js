@@ -130,7 +130,7 @@ console.log(weatherCodeMap[0].description);
 
 function weatherDescription(code) {
     return (`
-            <img src=${weatherCodeMap[code].icon} alt=${weatherCodeMap[code].description} width="80" height="80"><br>
+            <img src=${weatherCodeMap[code].icon} alt=${weatherCodeMap[code].description} class="weather-icon"><br>
             <small>${weatherCodeMap[code].description}</small>
         ` 
         || "Unknown weather");
@@ -193,7 +193,7 @@ function getDailyweather(data) {
         dailyContainer.innerHTML += `
                 <div class="daily-forecast">
                     <p><b>${now === dailyDate ? 'Today' : dailyDate}</b></p>
-                    <p><small>${weatherDescription(data.weather_code[i])}</small></p>
+                    <div class="weather-description">${weatherDescription(data.weather_code[i])}</div>
                     <p><b>H:${data.temperature_2m_max[i]}</b>°&nbsp;/&nbsp;L:${data.temperature_2m_min[i]}°</p>
                 </div>
                 <button id="daily-forecast-detail-${i}" class="daily-forecast-detail-${i}">

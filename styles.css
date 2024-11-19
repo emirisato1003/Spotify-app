@@ -53,6 +53,11 @@ main{
     gap: 15px;
 }
 
+.weather-icon{
+    height: 80px;
+    width: 80px;
+}
+
 .weather-current{
     display: flex;
     flex-direction: column;
@@ -150,7 +155,6 @@ main{
 }
 
 .weather-daily-forecast{
-    /* grid-row: 2 / 4; */
     border: yellow solid 1px;
     border-radius: 20px;
     background-color:#f5f5f555;
@@ -187,6 +191,16 @@ main{
     padding: 0 10px;
 }
 
+.weather-description{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.weather-description > small{
+    font-size: .7em;
+}
+
 .daily-forecast-container > button{
     border: none;
     padding: 0;
@@ -199,6 +213,25 @@ main{
     cursor: pointer;
     color: #000;
 }
+
+.daily-forecast-container::-webkit-scrollbar {
+    /* height: 8px;  */
+}
+
+.daily-forecast-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.daily-forecast-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.daily-forecast-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
 
 .back-to-page-btn{
     grid-column: 1 / -1;
