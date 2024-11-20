@@ -3,14 +3,6 @@ const searchButton = document.getElementById('search-button');
 const header = document.getElementById('header');
 const main = document.getElementById('weatherForecast');
 const backToPageBtn = document.getElementById('back-to-page-btn');
-
-function h5(title, icon) {
-    const h5 = document.createElement('h5');
-    h5.innerHTML = `<i class="bi ${icon}"></i>&nbsp;${title}`;
-    h5.className = 'forecast-title';
-    return h5;
-}
-
 const weatherCodeMap = {
     0: {
         description: "Clear sky",
@@ -126,14 +118,19 @@ const weatherCodeMap = {
     }
 };
 
-console.log(weatherCodeMap[0].description);
+function h5(title, icon) {
+    const h5 = document.createElement('h5');
+    h5.innerHTML = `<i class="bi ${icon}"></i>&nbsp;${title}`;
+    h5.className = 'forecast-title';
+    return h5;
+}
 
 function weatherDescription(code) {
-    return (`
-            <img src=${weatherCodeMap[code].icon} alt=${weatherCodeMap[code].description} class="weather-icon"><br>
-            <small>${weatherCodeMap[code].description}</small>
-        ` 
-        || "Unknown weather");
+    return `
+            <img src=${weatherCodeMap[code].icon} alt=${weatherCodeMap[code].description} class="weather-icon">
+            <p><small>${weatherCodeMap[code].description}</small></p>
+        `
+        || "Unknown weather";
 }
 
 function getHourlyweather(data) {
@@ -168,7 +165,6 @@ function getHourlyweather(data) {
 
 }
 
-
 function getDailyweather(data) {
     const weatherDaily = document.getElementById('weather-daily-forecast');
     weatherDaily.innerHTML = '';
@@ -186,7 +182,6 @@ function getDailyweather(data) {
 
             });
 
-        // console.log();
         const dailyContainer = document.createElement('div');
         dailyContainer.classList.add('daily-forecast-container');
 
@@ -229,7 +224,6 @@ function getDailyweather(data) {
     }
 }
 
-
 function getCurrentWeatherForecast(data, name) {
     header.style.display = 'none';
     main.style.display = 'grid';
@@ -241,25 +235,25 @@ function getCurrentWeatherForecast(data, name) {
     currentContainer.classList.add('weather-current-container');
 
 
-    // setInterval(() => {
-    const date = new Date();
-    const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    const currentDate = date.toLocaleDateString('en-US', option);
-    const currentTime = date.toLocaleString('en-US', {
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        hour12: false
-    });
+    setInterval(() => {
+        const date = new Date();
+        const option = { year: 'numeric', month: 'numeric', day: 'numeric' };
+        const currentDate = date.toLocaleDateString('en-US', option);
+        const currentTime = date.toLocaleString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: false
+        });
 
-    currentContainer.innerHTML = `
+        currentContainer.innerHTML = `
         <h1>${currentDate}</h1>
         <h2>${currentTime}</h2>
         <h3><i class="bi bi-geo-alt-fill"></i>&nbsp;${name}</h3>
         <h4>${data.current.temperature_2m}℉</h4>
         <h5 class="weather-code">${weatherDescription(data.current.weather_code)}</h5>
         `;
-    // }, 1000);
+    }, 1000);
     weatherCurrent.appendChild(currentContainer);
 
 
@@ -297,8 +291,8 @@ backToPageBtn.addEventListener('click', () => {
 
 searchButton.addEventListener('click', (e) => {
     e.preventDefault();
-    const postalCode = document.getElementById('search-input').value;
 
+    const postalCode = document.getElementById('search-input').value;
     fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${postalCode}&count=10&language=en&format=json`)
         .then((response) => response.json())
         .then(data => {
